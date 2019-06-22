@@ -115,6 +115,7 @@
                     <table class="cart" data-cart-quantity="1">
                         <thead class="cart-header">
                             <tr>
+                                <th class="cart-header-item">Img</th>
                                 <th class="cart-header-item">Item</th>
                                 <th class="cart-header-item">Price</th>
                                 <th class="cart-header-item cart-header-quantity">Quantity</th>
@@ -134,19 +135,11 @@
                             echo form_hidden('cart[' . $item['id'] . '][qty]', $item['qty']);
                             ?>
                             <tr class="cart-item" data-item-row>
-                                <!-- <td class="cart-item-block cart-item-figure">
-                                    <img class="cart-item-image lazyload" data-sizes="auto" src="https://cdn11.bigcommerce.com/s-4b0htg/stencil/7ab98780-51eb-0137-79d3-0242ac110003/e/54f12650-d33b-0136-1167-6fe0491fb18e/img/loading.svg" data-src="https://cdn11.bigcommerce.com/s-4b0htg/images/stencil/100x100/products/699/3304/KTM_Global-Black__23193.1498640465.jpg?c=2" alt="KTM 2016 2017 Graphics Kit by SK Designs Australia" title="KTM 2016 2017 Graphics Kit by SK Designs Australia">
-                                </td> -->
+                                <td class="cart-item-block cart-item-figure">
+                                    <img class="cart-item-image lazyload" data-sizes="auto" src="<?php echo base_url() ?>gopanel/uploads/barang/<?php echo $item['img']; ?>" data-src="<?php echo base_url() ?>gopanel/uploads/barang/<?php echo $item['img']; ?>" alt="<?php echo $item['name']; ?>" title="<?php echo $item['name']; ?>">
+                                </td>
                                 <td class="cart-item-block cart-item-title">
-                                    <!-- <p class="cart-item-brand">KTM</p> -->
                                     <h4 class="cart-item-name"><?php echo $item['name']; ?></h4>
-                                    <!-- <dl class="definitionList">
-                                        <dt class="definitionList-key">Product Selection:</dt>
-                                        <dd class="definitionList-value">
-                                        Full Graphics Kit
-                                        </dd>
-                                    </dl>
-                                    <a href="#" data-item-edit="d376d658-fa25-4d07-93be-cd6186c49f3a">Change</a> -->
                                     
                                 </td>
                                 <td class="cart-item-block cart-item-info">
@@ -178,6 +171,14 @@
                         </div>
                         <div class="cart-total-value cart-total-grandTotal">
                             <span>RP. <?php echo number_format($grand_total); ?></span>
+                        </div>
+                    </li>
+                    <li class="cart-total">
+                        <div class="cart-total-label">
+                            <strong>Grand total:</strong>
+                        </div>
+                        <div class="cart-total-value cart-total-grandTotal">
+                            <span>RP. <span id="spanharga"></span></span>
                         </div>
                     </li>
                 </ul>

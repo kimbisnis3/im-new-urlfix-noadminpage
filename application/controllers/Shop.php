@@ -94,4 +94,24 @@ function __construct(){
 		$this->cart->destroy();
 		redirect('shop');
 			}
+
+	function addcart(){
+
+		$id 	= $this->input->post('id');
+		$res	= $this->db->query("SELECT * FROM mbarang WHERE id = {$id}")->row();
+		$data = array(
+			'id'	=> $res->id,
+			'kode'	=> $res->kode,
+			'qty'	=> 1,
+			'price'	=> $res->harga,
+			'name'	=> $res->nama,
+			'img'	=> $res->image,
+		);
+
+		$this->cart->insert($data);
+
+		echo json_encode(array('sukses' => 'success'));
+
+
+	}
 }
